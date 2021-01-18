@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Create a Madlib for {{template_selection.replace("-", " ")}}</h1>
+    <form action="/madlib" data-form="main-form">
+        <input type="text" class="d-none" id="template-selection" name="template_selection"
+            value="{{template_selection}}">
+        {% for word in story.prompts %}
+        <div class="form-group mt-3">
+            <label for="{{word}}">{{word.replace("_", " ")}}</label>
+            <input class="form-control" type="text" id="{{word}}" name="{{word}}">
+        </div>
+        {% if loop.nextitem is not defined %}
+        <button class="btn btn-primary">Submit Story</button>
+        {% endif %}
+        {% endfor %}
+    </form>
+</div>
+<script src="/static/app.js"></script>
+{% endblock %}

@@ -10,6 +10,37 @@
         <option value="template-2">Template 2</option>
         <option value="template-3">Template 3</option>
     </select>
-    <button>Submit</button>
+    <button class="btn btn-info">Submit</button>
+</form>
+
+<div class="container">
+    <form action='/create-story-template'>
+        <div class="row">
+            <div class="form-group mt-3 col-3">
+                <label for="new-template"></label>
+                <label for="new-template">Create new template</label>
+                <div class="input-group has-validation">
+                    <input class="form-control" type="text" id="new-template" name="new-template" required>
+                    <div class="invalid-feedback">
+                        Please enter at least three characters
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group mt-3 col-3">
+                <label for="new-template"></label>
+                <label for="new-template">Create new template</label>
+                <div class="input-group has-validation">
+                    <input class="form-control" type="text" id="new-template" name="new-template" required>
+                    <div class="invalid-feedback">
+                        Please enter at least three characters
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-info">Submit</button>
+</div>
+
 </form>
 {% endblock %}

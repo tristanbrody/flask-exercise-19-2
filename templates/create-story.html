@@ -2,13 +2,18 @@
 {% block content %}
 <div class="container">
     <h1>Create a Madlib for {{template_selection.replace("-", " ")}}</h1>
-    <form action="/madlib" data-form="main-form">
+    <form action="/madlib" data-form="main-form" class="needs-validation" novalidate>
         <input type="text" class="d-none" id="template-selection" name="template_selection"
             value="{{template_selection}}">
         {% for word in story.prompts %}
         <div class="form-group mt-3">
             <label for="{{word}}">{{word.replace("_", " ")}}</label>
-            <input class="form-control" type="text" id="{{word}}" name="{{word}}">
+            <div class="input-group has-validation">
+                <input class="form-control" type="text" id="{{word}}" name="{{word}}" required>
+                <div class="invalid-feedback">
+                    Please enter at least three characters
+                </div>
+            </div>
         </div>
         {% if loop.nextitem is not defined %}
         <button class="btn btn-primary">Submit Story</button>

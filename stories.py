@@ -52,3 +52,8 @@ story3 = Story(
        large {adjective} {noun}. It loved to {verb} {plural_noun}."""
 )
 
+story_templates = {
+    'template-1': story1,
+    'template-2': story2,
+    'template-3': story3
+}

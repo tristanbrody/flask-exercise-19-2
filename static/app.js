@@ -1,9 +1,20 @@
-body.append('Some text')
-const form = document.querySelector("[data-form='main-form']");
-form.addEventListener('submit', handleFormSubmission);
-const input_els = Array.from(document.querySelectorAll(form > div > input));
-console.log(input_els);
-
-const handleFormSubmission = e => ({
-	const input_els = Array.from(document.querySelectorAll(form>div>input))
+window.addEventListener('DOMContentLoaded', e => {
+	const form = document.querySelector("[data-form='main-form']");
+	console.log(form);
+	form.addEventListener('submit', handleFormSubmission);
 });
+
+const handleFormSubmission = e => {
+	const input_els = Array.from(document.querySelectorAll('input'));
+	for (let input of input_els) {
+		if (!validateInput(input)) {
+			e.preventDefault();
+			input.value = '';
+		}
+	}
+	e.target.classList.add('was-validated');
+};
+
+const validateInput = input => {
+	return input.value.length >= 3;
+};
